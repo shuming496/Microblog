@@ -20,3 +20,5 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     POSTS_PER_PAGE = 3
+
+    LANGUAGES = ['en', 'es']
