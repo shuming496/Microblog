@@ -1,18 +1,18 @@
 import json
 import requests
 from flask_babel import _
-from app import app
+from flask import current_app
 import random
 from hashlib import md5
 from urllib import parse
 
 
 def translate(text, from_language, dest_language):
-    if 'YOUDAO_TRANSLATOR_APPKEY' not in app.config or not app.config['YOUDAO_TRANSLATOR_SECRETKEY']:
+    if 'YOUDAO_TRANSLATOR_APPKEY' not in current_app.config or not current_app.config['YOUDAO_TRANSLATOR_SECRETKEY']:
         return _('Error: the translation service is not configured.')
 
-    YOUDAO_TRANSLATOR_APPKEY = app.config['YOUDAO_TRANSLATOR_APPKEY']
-    YOUDAO_TRANSLATOR_SECRETKEY = app.config['YOUDAO_TRANSLATOR_SECRETKEY']
+    YOUDAO_TRANSLATOR_APPKEY = current_app.config['YOUDAO_TRANSLATOR_APPKEY']
+    YOUDAO_TRANSLATOR_SECRETKEY = current_app.config['YOUDAO_TRANSLATOR_SECRETKEY']
     salt = random.randint(1, 65536)
     sign = md5((YOUDAO_TRANSLATOR_APPKEY + text + str(salt) + YOUDAO_TRANSLATOR_SECRETKEY).encode('utf-8')).hexdigest()
 
