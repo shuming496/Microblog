@@ -22,3 +22,6 @@ class Config(object):
     POSTS_PER_PAGE = 3
 
     LANGUAGES = ['en', 'es']
+
+    YOUDAO_TRANSLATOR_APPKEY = os.environ.get('YOUDAO_TRANSLATOR_APPKEY')
+    YOUDAO_TRANSLATOR_SECRETKEY = os.environ.get('YOUDAO_TRANSLATOR_SECRETKEY')
