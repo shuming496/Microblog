@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-load_dotenv(os.path.join(basedir, '.env'))
+load_dotenv(os.path.join(basedir, 'config.env'))
 
 
 class Config(object):
@@ -27,3 +27,5 @@ class Config(object):
 
     YOUDAO_TRANSLATOR_APPKEY = os.environ.get('YOUDAO_TRANSLATOR_APPKEY')
     YOUDAO_TRANSLATOR_SECRETKEY = os.environ.get('YOUDAO_TRANSLATOR_SECRETKEY')
+
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
